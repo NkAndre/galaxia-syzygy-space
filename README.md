@@ -27,6 +27,6 @@ O projeto foi cuidadosamente ajustado para telas menores, garantindo que as imag
 Clone o repositório:
 
 Bash
-git clone https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git
+git clone (https://github.com/NkAndre/galaxia-syzygy-space.git)
 
 Abra o arquivo index.html no seu navegador ou utilize a extensão Live Server do VS Code.  
