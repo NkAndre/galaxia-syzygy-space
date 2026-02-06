@@ -308,14 +308,14 @@ section {
 
         .arrows {
             width: 80%;
-            bottom: 60px;
+            bottom: 150px;
             top: auto;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .indicators {
-            bottom: 20px;
+            bottom: 80px;
             top: auto;
             align-items: center;
             height: auto;
