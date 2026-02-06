@@ -326,3 +326,16 @@ section {
         }
     }
 }
+
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Cor branca para combinar com o espaço */
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #beff1b; /* Cor verde limão ao passar o mouse */
+}
