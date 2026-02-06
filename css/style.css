@@ -1,0 +1,328 @@
+/* RESET BASICO*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    width: 90vw;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 600px;
+    gap: 10%;
+    z-index: 100;
+
+    & .logo {
+        font-family: "League Gothic", sans-serif;
+        font-size: 2rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #fff;
+
+        & span {
+            color: #beff1b;
+        }
+    }
+
+    & nav {
+        & ul {
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+        }
+    }
+}
+
+section {
+    background-image: radial-gradient(#71348d, #6d00d9);
+    height: 100vh;
+    position: relative;
+
+    & .list {
+        width: 85vw;
+        height: 100%;
+        margin: auto;
+        position: relative;
+
+        & .item {
+            position: absolute;
+            inset: 0;
+            transform: translateX(100vw);
+            transition: 0.8s;
+            opacity: 0;
+
+            & .car-img {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 100px;
+                width: 45%;
+                max-width: 400px;
+                z-index: 1;
+
+                & img {
+                    width: 100%;
+                    transform: rotate(0);
+                    z-index: 2;
+                    transition: 0.5s;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+
+            & .content {
+                position: absolute;
+                right: 0px;
+                width: 50%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                gap: 20px;
+                z-index: 3;
+
+                & .car-information {
+                    font-weight: bold;
+                }
+
+                & h2 {
+                    font-size: 7em;
+                    line-height: 0.5em;
+                    font-family: "League Gothic", sans-serif;
+                    margin-bottom: 95px;
+                }
+
+                & .description {
+                    color: #d9d9d9;
+                    font-size: 15px;
+                    text-align: right;
+                    max-width: 400px;
+                }
+
+                /* Ajuste para o Link NASA */
+                & a {
+                    text-decoration: none;
+                    transform: translateX(200px);
+                    transition: 0.9s;
+                    transition-delay: 0.3s;
+                    opacity: 0;
+                    
+                    & .information {
+                        border-radius: 30px;
+                        height: 35px;
+                        width: 120px;
+                        text-transform: uppercase;
+                        border: 2px solid #791fd3;
+                        background-color: #beff1b;
+                        color: #000;
+                        cursor: pointer;
+                        font-weight: bold;
+                        pointer-events: auto;
+                    }
+                }
+
+                & .car-information, h2, .description {
+                    transform: translateX(200px);
+                    transition: 0.7s;
+                    transition-delay: 0.3s;
+                    opacity: 0;
+                }
+            }
+        }
+
+        & .active {
+            transform: translateX(0);
+            transition: 0.5s;
+            opacity: 1;
+            z-index: 10;
+
+            & .car-img img {
+                transform: rotate(-20deg);
+            }
+
+            & .content {
+                & .car-information, h2, .description, a {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                & h2 { transition: 0.5s; }
+                & .description { transition: 0.7s; }
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            top: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    .arrows {
+        width: 80vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25px);
+        display: flex;
+        justify-content: space-between;
+        z-index: 100;
+
+        & button:nth-child(1) {
+            transform: scale(-1);
+        }
+
+        & button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+
+            & img {
+                margin-top: 4px;
+                width: 30px;
+            }
+
+            &:hover {
+                background-color: #beff1b;
+            }
+        }
+    }
+
+    .indicators {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 200px;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 15px;
+        font-family: "League Gothic", sans-serif;
+
+        & .number {
+            font-size: 5em;
+        }
+
+        & ul {
+            display: flex;
+            gap: 10px;
+
+            & li {
+                width: 50px;
+                height: 5px;
+                background-color: #beff1b;
+                border-radius: 5px;
+                transition: 0.5s;
+            }
+
+            & .active {
+                background-color: #fff;
+            }
+        }
+    }
+}
+
+/* =========================
+   RESPONSIVIDADE - MOBILE
+   ========================= */
+@media (max-width: 768px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        height: 110px;
+        padding: 10px 20px;
+        grid-template-columns: 1fr;
+
+        & nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding-top: 35px;
+            grid-template-columns: none;
+        }
+    }
+
+    section {
+        padding-top: 110px;
+        overflow: hidden;
+
+        & .list {
+            width: 100%;
+            
+            & .item {
+                & .car-img {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    transform: none;
+                    width: 70%;
+                    max-width: 240px;
+                    margin: 40px auto 0;
+                }
+
+                & .content {
+                    position: relative;
+                    width: 90%;
+                    height: auto;
+                    margin: 20px auto 0;
+                    align-items: center;
+                    text-align: center;
+                    gap: 12px;
+                    right: auto;
+
+                    & h2 {
+                        font-size: 3em;
+                        line-height: 1em;
+                        margin-bottom: 10px;
+                    }
+
+                    & .description {
+                        text-align: center;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .arrows {
+            width: 80%;
+            bottom: 60px;
+            top: auto;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .indicators {
+            bottom: 20px;
+            top: auto;
+            align-items: center;
+            height: auto;
+            
+            & .number {
+                font-size: 3em;
+            }
+        }
+    }
+}
