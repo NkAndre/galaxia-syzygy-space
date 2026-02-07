@@ -7,11 +7,48 @@
     font-family: "Poppins", sans-serif;
 }
 
+:root {
+    /* Tema Dark (Padrão) */
+    --bg-color: #0b0116;
+    --card-bg: #2a0a4d;
+    --text-color: #ffffff;
+    --accent-color: #ADFF2F; /* Verde Limão */
+}
+
+[data-theme="light"] {
+    /* Tema Light */
+    --bg-color: #f0f0f5;
+    --card-bg: #ffffff;
+    --text-color: #1a1a1a;
+    --accent-color: #6200ee; /* Roxo vibrante */
+}
+
 body {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
     font-size: 16px;
     overflow-x: hidden;
+}
+
+/* ESTILO DO BOTÃO DE TEMA */
+.btn-theme {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--text-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-weight: bold;
+    transition: 0.3s;
+    white-space: nowrap;
+    align-self: center;
+}
+
+.btn-theme:hover {
+    background: var(--accent-color);
+    color: #000;
 }
 
 header {
@@ -22,7 +59,7 @@ header {
     display: grid;
     align-items: center;
     grid-template-columns: 1fr 600px;
-    gap: 10%;
+    gap: 5%; /* Reduzi um pouco o gap para caber o botão */
     z-index: 100;
 
     & .logo {
@@ -30,23 +67,28 @@ header {
         font-size: 2rem;
         letter-spacing: 3px;
         text-transform: uppercase;
-        color: #fff;
+        color: var(--text-color);
 
         & span {
-            color: #beff1b;
+            color: var(--accent-color);
         }
     }
 
     & nav {
+        display: flex; /* Mudei para flex para alinhar o UL e o BOTÃO lado a lado */
+        align-items: center;
+        gap: 20px;
+
         & ul {
             display: grid;
-            grid-template-columns: repeat(3, 200px);
+            grid-template-columns: repeat(3, 1fr); /* 3 colunas para os links */
+            gap: 10px;
         }
     }
 }
 
 section {
-    background-image: radial-gradient(#71348d, #6d00d9);
+    background-image: radial-gradient(var(--card-bg), var(--bg-color));
     height: 100vh;
     position: relative;
 
@@ -106,13 +148,13 @@ section {
                 }
 
                 & .description {
-                    color: #d9d9d9;
+                    color: var(--text-color);
+                    opacity: 0.8;
                     font-size: 15px;
                     text-align: right;
                     max-width: 400px;
                 }
 
-                /* Ajuste para o Link NASA */
                 & a {
                     text-decoration: none;
                     transform: translateX(200px);
@@ -125,8 +167,8 @@ section {
                         height: 35px;
                         width: 120px;
                         text-transform: uppercase;
-                        border: 2px solid #791fd3;
-                        background-color: #beff1b;
+                        border: 2px solid var(--card-bg);
+                        background-color: var(--accent-color);
                         color: #000;
                         cursor: pointer;
                         font-weight: bold;
@@ -193,6 +235,7 @@ section {
             border-radius: 50%;
             border: none;
             cursor: pointer;
+            background-color: var(--text-color);
 
             & img {
                 margin-top: 4px;
@@ -200,7 +243,7 @@ section {
             }
 
             &:hover {
-                background-color: #beff1b;
+                background-color: var(--accent-color);
             }
         }
     }
@@ -229,21 +272,18 @@ section {
             & li {
                 width: 50px;
                 height: 5px;
-                background-color: #beff1b;
+                background-color: var(--accent-color);
                 border-radius: 5px;
                 transition: 0.5s;
             }
 
             & .active {
-                background-color: #fff;
+                background-color: var(--text-color);
             }
         }
     }
 }
 
-/* =========================
-   RESPONSIVIDADE - MOBILE
-   ========================= */
 @media (max-width: 768px) {
     header {
         position: fixed;
@@ -251,16 +291,21 @@ section {
         left: 0;
         transform: none;
         width: 100%;
-        height: 110px;
+        height: auto;
         padding: 10px 20px;
         grid-template-columns: 1fr;
 
-        & nav ul {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            padding-top: 35px;
-            grid-template-columns: none;
+        & nav {
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 10px;
+
+            & ul {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                grid-template-columns: none;
+            }
         }
     }
 
@@ -327,15 +372,27 @@ section {
     }
 }
 
-
 header nav ul li a {
     text-decoration: none;
-    color: #fff; /* Cor branca para combinar com o espaço */
+    color: var(--text-color);
     font-weight: bold;
     text-transform: uppercase;
     transition: 0.3s;
 }
 
 header nav ul li a:hover {
-    color: #beff1b; /* Cor verde limão ao passar o mouse */
+    color: var(--accent-color);
+}
+
+/* AJUSTE DAS SETAS NO TEMA CLARO */
+[data-theme="light"] .arrows button img {
+    filter: invert(1); /* Inverte o preto para branco ou vice-versa */
+}
+
+[data-theme="light"] .arrows button {
+    background-color: var(--text-color); /* Garante que o fundo do botão use a cor de texto do tema */
+}
+
+[data-theme="light"] .arrows button:hover {
+    background-color: var(--accent-color);
 }

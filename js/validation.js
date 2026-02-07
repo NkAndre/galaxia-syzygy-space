@@ -48,3 +48,10 @@ if ('serviceWorker' in navigator) {
     .then(() => console.log("Sistema de bordo pronto para instalação!"))
     .catch(err => console.log("Falha no sistema de bordo:", err));
 }
+
+
+// Aplica o tema salvo no localStorage assim que a página carrega
+document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    document.body.setAttribute("data-theme", savedTheme);
+});

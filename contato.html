@@ -6,8 +6,14 @@
     <title>Fale Conosco - Galáxia Syzygy</title>
     <link rel="stylesheet" href="css/contato.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=League+Gothic&display=swap" rel="stylesheet">
-     <link rel="shortcut icon" href="./assets/icone-glx.png" type="image/x-icon">
-     <script src="./js/validation.js" defer></script>
+    <link rel="shortcut icon" href="./assets/icone-glx.png" type="image/x-icon">
+    
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+    
+    <script src="./js/validation.js" defer></script>
 </head>
 <body>
     <section class="contact-container">
@@ -40,11 +46,16 @@
     </section>
 
     <div id="modalSucesso" class="modal-overlay">
-    <div class="modal-content">
-        <h3>TRANSMISSÃO CONCLUÍDA!</h3>
-        <p>Sua mensagem atravessou o hiperespaço e chegou à nossa base.</p>
-        <button onclick="fecharModal()" class="btn-send">Entendido</button>
+        <div class="modal-content">
+            <h3>TRANSMISSÃO CONCLUÍDA!</h3>
+            <p>Sua mensagem atravessou o hiperespaço e chegou à nossa base.</p>
+            <button onclick="fecharModal()" class="btn-send">Entendido</button>
+        </div>
     </div>
-</div>
+
+    <script>
+        // Sincroniza o atributo data-theme no body para o CSS aplicar as variáveis
+        document.body.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    </script>
 </body>
 </html>

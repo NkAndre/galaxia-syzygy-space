@@ -1,3 +1,4 @@
+// Seletores do Slider
 let prevButton = document.getElementById('prev');
 let nextButton = document.getElementById('next');
 let container = document.querySelector('.container');
@@ -9,15 +10,12 @@ let active = 0;
 let lastPosition = items.length - 1;
 
 function updateSlider() {
-    // Remove classe active de todos
     items.forEach(item => item.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
 
-    // Adiciona ao atual
     items[active].classList.add('active');
     dots[active].classList.add('active');
 
-    // Atualiza número
     let displayActive = active + 1;
     listNumber.innerText = displayActive < 10 ? '0' + displayActive : displayActive;
 }
@@ -32,7 +30,7 @@ prevButton.onclick = () => {
     updateSlider();
 }
 
-// Lógica de Swipe para Mobile
+// Swipe Mobile
 let startX = 0;
 container.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
@@ -41,12 +39,31 @@ container.addEventListener('touchstart', (e) => {
 container.addEventListener('touchend', (e) => {
     let endX = e.changedTouches[0].clientX;
     let distance = endX - startX;
-
-    if (distance > 50) { // Swipe direita (Anterior)
+    if (distance > 50) { // Direita
         active = active - 1 < 0 ? lastPosition : active - 1;
         updateSlider();
-    } else if (distance < -50) { // Swipe esquerda (Próximo)
+    } else if (distance < -50) { // Esquerda
         active = active + 1 > lastPosition ? 0 : active + 1;
         updateSlider();
+    }
+});
+
+// Lógica de Dark/Light Mode
+const themeToggle = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+}
+
+themeToggle.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    
+    if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
     }
 });
