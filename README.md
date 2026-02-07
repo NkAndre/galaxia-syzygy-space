@@ -3,13 +3,15 @@
 Um carrossel interativo e responsivo desenvolvido com foco em design moderno, animações fluidas e temática espacial. Este projeto utiliza técnicas avançadas de CSS (Nesting) para criar uma experiência imersiva de navegação por diferentes planetas e destinos espaciais.
 
 ## 🛠️ TECNOLOGIAS UTILIZADAS
-HTML5: Estrutura semântica.
 
-CSS3 (Custom Properties & Nesting): Estilização avançada, efeitos de gradiente radial e animações de transição.
+<div style="display: flex; gap: 10px;"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="HTML5" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="CSS3" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="JavaScript" /> </div>
 
-JavaScript: Lógica de navegação do carrossel e controle de estados ativos.
+## PREVIEW 
+<img width="1916" height="906" alt="home-dark" src="https://github.com/user-attachments/assets/6289b249-4518-41e5-a438-d63c5af27888" />
+<img width="1919" height="907" alt="home-light" src="https://github.com/user-attachments/assets/77bd3004-a634-4ca3-9632-9c8f8fe2013b" />
+<img width="1918" height="907" alt="tela_contato" src="https://github.com/user-attachments/assets/57e7be63-ea6c-41f8-b642-a26dcc2adf94" />
 
-Google Fonts: Fontes Poppins e League Gothic para um visual premium.
+
 
 ## ✨ FUNCIONALIDADES
 Animações de Entrada: Cada slide possui elementos (imagens e textos) que entram com diferentes atrasos (delays), criando um efeito de profundidade.
