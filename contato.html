@@ -7,24 +7,28 @@
     <link rel="stylesheet" href="css/contato.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=League+Gothic&display=swap" rel="stylesheet">
      <link rel="shortcut icon" href="./assets/icone-glx.png" type="image/x-icon">
+     <script src="./validation.js" defer></script>
 </head>
 <body>
     <section class="contact-container">
         <div class="contact-box">
             <h2>CONTATO<span>_</span></h2>
+            <div>
+                <p id="error-message" style="color: #ff4d4d; font-size: 0.9rem; margin-bottom: 10px; display: none;"></p>
+            </div>
             <p>Mande sua mensagem para a nossa base de comando.</p>
             
-            <form>
+            <form id="meuForms" novalidate>
                 <div class="input-group">
-                    <input type="text" required>
+                    <input id="nome" type="text" required>
                     <label>Nome Completo</label>
                 </div>
                 <div class="input-group">
-                    <input type="email" required>
+                    <input id="email" type="email" required>
                     <label>E-mail Espacial</label>
                 </div>
                 <div class="input-group">
-                    <textarea required></textarea>
+                    <textarea id="mensagem" required></textarea>
                     <label>Sua Mensagem</label>
                 </div>
                 
@@ -34,5 +38,13 @@
             <a href="index.html" class="back-link">← Voltar para a Galáxia</a>
         </div>
     </section>
+
+    <div id="modalSucesso" class="modal-overlay">
+    <div class="modal-content">
+        <h3>TRANSMISSÃO CONCLUÍDA!</h3>
+        <p>Sua mensagem atravessou o hiperespaço e chegou à nossa base.</p>
+        <button onclick="fecharModal()" class="btn-send">Entendido</button>
+    </div>
+</div>
 </body>
 </html>

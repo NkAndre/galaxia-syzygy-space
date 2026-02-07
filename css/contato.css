@@ -116,3 +116,42 @@ p { font-size: 0.9rem; margin-bottom: 30px; color: #ccc; }
         font-size: 2.8rem; /* Diminui um pouco para não quebrar linha */
     }
 }
+
+.modal-overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Fundo escuro semi-transparente para fica padraoziin*/
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #2a0a4d; /* Roxo escuro da sua galáxia */
+    padding: 30px;
+    border: 2px solid #ADFF2F; /* Verde limão */
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    color: white;
+    box-shadow: 0 0 20px rgba(173, 255, 47, 0.3);
+}
+
+.modal-content h3 {
+    color: #ADFF2F;
+    font-family: 'League Gothic', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    animation: surgir 0.5s ease-out;
+}
+
+/* Animação de Fade In naql pique */
+@keyframes surgir {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
