@@ -42,3 +42,9 @@ form.addEventListener('submit', function(e) {
 function fecharModal() {
     document.getElementById('modalSucesso').style.display = 'none';
 }
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('../sw.js')
+    .then(() => console.log("Sistema de bordo pronto para instalação!"))
+    .catch(err => console.log("Falha no sistema de bordo:", err));
+}
